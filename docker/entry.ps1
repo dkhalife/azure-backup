@@ -11,7 +11,7 @@ $envVars = @(
 )
 
 foreach ($var in $envVars) {
-    if (-not $env:$var) {
+    if (-not (Test-Path Env:$var)) {
         throw "Environment variable $var must be set."
     }
 }
